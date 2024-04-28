@@ -1,27 +1,26 @@
+import { MovieData } from "../../models/movie-data.model";
 import "./MovieCard.css";
 
-const MovieCard = () => {
-  const tempval = {
-    Title: "Spiderman in Cannes",
-    Year: "2016",
-    imdbID: "tt5978586",
-    Type: "movie",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BZDlmMGQwYmItNTNmOS00OTNkLTkxNTYtNDM3ZWVlMWUyZDIzXkEyXkFqcGdeQXVyMTA5Mzk5Mw@@._V1_SX300.jpg",
-  };
+const MovieCard = (props: any) => {
+  const RANDOM_IMAGE_API_URL =
+    "https://via.assets.so/img.jpg?w=400&h=250&tc=#f9d3b4&bg=#212426&t=No Image";
+  const movie = props.movie as MovieData;
   return (
     <div className="movie-card">
       <div className="movie-year">
-        <p>{tempval.Year}</p>
+        <p>{movie.Year}</p>
       </div>
 
       <div className="movie-poster">
-        <img src={tempval.Poster !== "N/A" ? tempval.Poster : ""} alt="" />
+        <img
+          src={movie.Poster !== "N/A" ? movie.Poster : RANDOM_IMAGE_API_URL}
+          alt=""
+        />
       </div>
 
       <div className="movie-details">
-        <span>{tempval.Type}</span>
-        <h3>{tempval.Title}</h3>
+        <span>{movie.Type}</span>
+        <h3>{movie.Title}</h3>
       </div>
     </div>
   );
