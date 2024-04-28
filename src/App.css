@@ -57,4 +57,9 @@ h1 {
     background-color: transparent;
     color:#a1a1a1;
   }
+
+  img{
+    width: 2rem;
+    height: 2rem;
+  }
 }
