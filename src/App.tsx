@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import SearchIcon from "./assets/search.svg";
 import MovieCard from "./components/MovieCard/MovieCard";
@@ -13,20 +13,22 @@ function App() {
   };
 
   const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    searchMovies("spiderman");
-  }, []);
+  const [search, setSearch] = useState("");
 
   return (
     <div className="app-container">
       <h1>MovieSearch</h1>
       <div className="search-bar">
-        <input placeholder="Search for movies"></input>
+        <input
+          placeholder="Search for movies"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        ></input>
         <img
           src={SearchIcon}
           alt="search icon"
           onClick={() => {
-            searchMovies;
+            searchMovies(search);
           }}
         />
       </div>
